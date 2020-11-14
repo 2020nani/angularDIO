@@ -1,0 +1,23 @@
+
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    height: 20vh;
+    background-color: blanchedalmond;
+    margin-top: 1vh;
+   
+  
+  }
+  h1{
+    font-size: 2rem;
+    margin-left: 3vw;
+  }
+  .headicons{
+    margin-left: 10vw;
+  }
+  .icon{
+    margin-left: 10vw;
+    margin-right: 10px;
+  }
