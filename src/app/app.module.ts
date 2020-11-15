@@ -2,41 +2,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourselistComponent } from './courses/course-list.component';
-import { HeaderComponent } from './header/header.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatTableModule } from '@angular/material/table';
-
-import { FooterComponent } from './footer/footer.component';
-import { DatepickerApiExample } from './datepicker/datepicker-api-example';
-
-
-
+import { StarComponent } from './star/star.component';
+import { ReplacePipe } from './pipe/replace.pipe';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { Erro404Component } from './erro404/erro404.component';
+import { CourseInfoComponent } from './courses/course-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourselistComponent,
-    HeaderComponent,
-    FooterComponent,
-    DatepickerApiExample
+    StarComponent,
+    ReplacePipe,
+    NavBarComponent,
+    Erro404Component,
+    CourseInfoComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatTabsModule,
-    MatTableModule,
-   
-   
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,37 +1,45 @@
 import { Component } from '@angular/core'
 import { Course } from './app.component'
+import { CourseService } from './course.service';
 
 @Component({
-    selector: 'app-course-list',
+    
     templateUrl: './course-list.component.html'
 })
 export class CourselistComponent {
 
-    courses: Course[] = [];
+    filteredCourses: Course[] = []
+
+    _courses: Course[] = [];
+
+    _filterby: string
+
+    constructor( private courseService: CourseService) {}
 
     ngOnInit(): void {
-        this.courses = [
-            {
-                id: 1,
-                name: 'Angular: Forms',
-                imageUrl: '',
-                price: 99.99,
-                code: 'x-1',
-                duration: 120,
-                rating: 4.5,
-                releaseDate: 'December, 02, 2019'
-            },
-            {
-                id: 2,
-                name: 'Angular: HTTP',
-                imageUrl: '',
-                price: 45,
-                code: 'x-2',
-                duration: 80,
-                rating: 4,
-                releaseDate: 'November, 02, 2019'
-            }
-        ]
+        this.retrieveAll();
+       
+        
     }
+    retrieveAll(): void {
+        this.courseService.retrieveAll().subscribe({
+            next: courses => {
+                this._courses = courses
+                this.filteredCourses = this._courses
+            },
+            error:err => console.log('error' , err)
+        })
+        
+    }
+    deleteById(courseId: number): void { 
+        this.courseService.deleteById(courseId).subscribe({
+            next: () => { 
+                console.log('Deleted with success');
+                this.retrieveAll();
+            },
+            error: err => console.log('Error', err)
+        })
+    }
+  
 
 }
